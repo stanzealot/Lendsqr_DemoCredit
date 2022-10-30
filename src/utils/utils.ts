@@ -36,7 +36,7 @@ export const loginSchema = Joi.object().keys({
 export const accountSchema = Joi.object().keys({
     bankName: Joi.string().required(),
     accountName: Joi.string().required(),
-    bankNumber: Joi.string().length(10).required(),
+    accountNumber: Joi.string().length(10).required(),
   });
   
   

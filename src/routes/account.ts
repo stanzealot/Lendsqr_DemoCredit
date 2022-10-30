@@ -1,9 +1,10 @@
 import express from 'express';
 const router = express.Router();
-
+import {AccountController} from '../controller/accountController'
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.send("account");
-});
+const controller = new AccountController()
+router.get('/',controller.getAccounts);
+router.get('/:userId',controller.getUserAccounts)
+router.post('/:userId',controller.createAccount)
 
 export default router;
