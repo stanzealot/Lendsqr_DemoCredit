@@ -1,12 +1,5 @@
 import Joi from 'joi'
 import jwt from 'jsonwebtoken'
-export const creatMovieSchema = Joi.object().keys({
-    title: Joi.string().required(),
-    description :Joi.string().required(),
-    image: Joi.string().required(),
-    price: Joi.number().required(),
-   
-});
 
 export const updateUserSchema = Joi.object().keys({
     username:Joi.string(),
@@ -42,9 +35,15 @@ export const accountSchema = Joi.object().keys({
   
   //update Account details
 export const updateAccountSchema = Joi.object().keys({
-    accountName: Joi.string(),
+    accountName: Joi.string()
    
-  });
+});
+ 
+// deposit
+export const depositSchema = Joi.object().keys({
+    amount: Joi.number().min(500).max(1000000).required()
+});
+
 
 //Generate Token
 export const generateToken=(user:{[key:string]:unknown}):unknown=>{
