@@ -16,7 +16,7 @@ class AccountController {
                 Error:validationResult.error.details[0].message
             })
             }
-            const bankCode ="123"
+            const bankCode ="044"
             const {bankName,accountName,accountNumber} = req.body;
             const duplicatAccountName =   await db('accounts').where({accountName:accountName}).first();
             const duplicatAccountNumber =   await db('accounts').where({accountNumber:accountNumber}).first();

@@ -5,7 +5,7 @@ import { auth } from '../middleware/auth';
 /* GET users listing. */
 const controller = new UsersController()
 router.get('/',controller.getAllUsers);
-router.get('/:id',auth,controller.findById)
+router.get('/:id',controller.findById)
 router.post('/',controller.createUser)
 router.post('/login',controller.login)
 router.patch('/:id',controller.update)

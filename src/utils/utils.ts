@@ -43,8 +43,13 @@ export const updateAccountSchema = Joi.object().keys({
 export const depositSchema = Joi.object().keys({
     amount: Joi.number().min(500).max(1000000).required()
 });
-
-
+// transfer
+export const transferSchema = Joi.object().keys({
+    recipientEmail: Joi.string().trim().lowercase().required(),
+    recipientPhone: Joi.string().regex(/^[a-zA-Z0-9]{11}$/).required(),
+    amount: Joi.number().min(100).max(1000000).required(),
+    recipient: Joi.string(),
+  });
 //Generate Token
 export const generateToken=(user:{[key:string]:unknown}):unknown=>{
   const pass = `${process.env.JWT_SECRET}` as string
