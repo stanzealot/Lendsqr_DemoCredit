@@ -6,6 +6,7 @@ import accountRouter from './routes/account'
 import usersRouter from './routes/users'
 import depositRouter from './routes/deposit'
 import transferRouter from './routes/transfer'
+import withdrawalRouter from './routes/withdrawal'
 
 const app = express();
 
@@ -19,5 +20,6 @@ app.use('/democredit/users', usersRouter);
 app.use('/democredit/accounts', accountRouter);
 app.use('/democredit/deposits', depositRouter);
 app.use('/democredit/transfers', transferRouter);
+app.use('/democredit/withdrawals',withdrawalRouter)
 
 export default app;

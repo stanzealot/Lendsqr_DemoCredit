@@ -50,6 +50,17 @@ export const transferSchema = Joi.object().keys({
     amount: Joi.number().min(100).max(1000000).required(),
     recipient: Joi.string(),
   });
+
+  //widthdraw
+export const withdrawalSchema = Joi.object().keys({
+    bank: Joi.string(),
+    bankCode:Joi.string(),
+    name: Joi.string(),
+    number: Joi.string().length(10),
+    amount: Joi.number().required(),
+    password: Joi.string().regex(/^[a-zA-Z0-9]{3,30}$/).required()
+  });
+  
 //Generate Token
 export const generateToken=(user:{[key:string]:unknown}):unknown=>{
   const pass = `${process.env.JWT_SECRET}` as string

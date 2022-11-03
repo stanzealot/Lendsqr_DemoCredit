@@ -1,10 +1,9 @@
 import  {Request,Response} from 'express'
 import db from "../database/db";
 import {v4 as uuid} from 'uuid'
-import {accountSchema,options,updateUserSchema,generateToken, updateAccountSchema} from '../utils/utils'
-import bcrypt from 'bcryptjs'
-import { json } from 'stream/consumers';
-import { error } from 'console';
+import {accountSchema,options, updateAccountSchema} from '../utils/utils'
+
+
 class AccountController {
     async createAccount(req: Request, res: Response){
         try{
