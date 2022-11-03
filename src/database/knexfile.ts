@@ -16,7 +16,7 @@ const configs: IKnexConfig = {
       database : 'lendsqrDB'
     }
   },
-
+  
   staging: {
     client: "postgresql",
     connection: {
