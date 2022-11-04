@@ -9,11 +9,11 @@ const configs: IKnexConfig = {
   development: {
     client: 'mysql',
     connection: {
-      host : '127.0.0.1',
+      host : 'us-cdbr-east-06.cleardb.net',
       port : 3306,
-      user : 'root',
-      password : '1234',
-      database : 'lendsqrDB'
+      user : 'babdf81e43a9ef',
+      password : '8c110f8f',
+      database : 'heroku_f2ffedc29a7e1ab'
     }
   },
   
