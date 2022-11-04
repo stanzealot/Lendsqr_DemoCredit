@@ -6,7 +6,18 @@ interface IKnexConfig {
 }
 
 const configs: IKnexConfig = {
-  development: {
+  production: {
+    client: 'mysql',
+    connection: {
+      host : 'us-cdbr-east-06.cleardb.net',
+      port : 3306,
+      user : 'babdf81e43a9ef',
+      password : '8c110f8f',
+      database : 'heroku_f2ffedc29a7e1ab'
+    }
+    }
+  },
+  test:{
     client: 'mysql',
     connection: {
       host : 'us-cdbr-east-06.cleardb.net',
@@ -16,7 +27,6 @@ const configs: IKnexConfig = {
       database : 'heroku_f2ffedc29a7e1ab'
     }
   },
-  
   staging: {
     client: "postgresql",
     connection: {
@@ -33,7 +43,7 @@ const configs: IKnexConfig = {
     }
   },
 
-  production: {
+  development: {
     client: "postgresql",
     connection: {
       database: "my_db",
