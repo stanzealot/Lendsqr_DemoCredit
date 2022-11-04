@@ -103,9 +103,9 @@ class AccountController {
         try{
             const {id} = req.params;
     
-            const deleteProduct = await db('accounts').where('id', id).delete();
+            const account = await db('accounts').where('id', id).delete();
     
-            res.json(deleteProduct);
+            res.json({msg:"account deleted successfully",account});
             }catch(err){
                 res.status(500).json("unable to delete account")
             }

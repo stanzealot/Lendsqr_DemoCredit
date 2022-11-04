@@ -7,8 +7,11 @@ import usersRouter from './routes/users'
 import depositRouter from './routes/deposit'
 import transferRouter from './routes/transfer'
 import withdrawalRouter from './routes/withdrawal'
+import db from './database/db'
 
 const app = express();
+
+
 
 app.use(logger('dev'));
 app.use(express.json());

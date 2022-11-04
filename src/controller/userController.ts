@@ -52,6 +52,8 @@ class UsersController {
        
       
     }
+
+    //login
     async login(req: Request, res: Response){
         try{ 
             const validationResult = loginSchema.validate(req.body,options)
@@ -61,13 +63,13 @@ class UsersController {
                })
             }
             const user = await db('users').where({email:req.body.email}).first();
-            if(!user) return res.status(404).json({msg:"invalide credential"})
+            if(!user) return res.status(404).json({msg:"User not found"})
             const {id} = user
             const token = generateToken({id})
             const validUser = await bcrypt.compare(req.body.password, user.password);
             if(!validUser){
                 res.status(401).json({
-                    message:"Password do not match"
+                    msg:"password does not match"
                 })
             }
      
@@ -83,7 +85,7 @@ class UsersController {
              
               
               res.status(200).json({
-                  message:"Successfully logged in",
+                  msg:"You have successfully logged in",
                   token,
                   user
               })
@@ -134,7 +136,7 @@ class UsersController {
                 const user = await db('users').where({id:id}).first();
                 if(!user){
                   return res.status(404).json({
-                     Error:"Cannot find existing user",
+                     msg:"Cannot find existing user",
                   })
                 }
                 
@@ -169,9 +171,9 @@ class UsersController {
             id
         } = req.params;
 
-        const deleteProduct = await db('users').where('id', id).delete();
+        const user = await db('users').where('id', id).delete();
 
-        res.json(deleteProduct);
+        res.status(204).json({msg:"user deleted successfully",user});
     }
 }
 
