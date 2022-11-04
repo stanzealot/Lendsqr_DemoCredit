@@ -6,17 +6,26 @@ interface IKnexConfig {
 }
 
 const configs: IKnexConfig = {
-  development: {
+  production: {
+    client: 'mysql',
+    connection: {
+      host : process.env.DB_HOST,
+      port : 3306,
+      user : process.env.DB_USER,
+      password : process.env.DB_PASSWORD,
+      database : process.env.DATABASE
+    }
+  },
+  test:{
     client: 'mysql',
     connection: {
       host : '127.0.0.1',
       port : 3306,
       user : 'root',
       password : '1234',
-      database : 'lendsqrDB'
+      database : 'lendsqrTestDB'
     }
   },
-
   staging: {
     client: "postgresql",
     connection: {
@@ -33,7 +42,7 @@ const configs: IKnexConfig = {
     }
   },
 
-  production: {
+  development: {
     client: "postgresql",
     connection: {
       database: "my_db",
