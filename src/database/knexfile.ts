@@ -9,22 +9,33 @@ const configs: IKnexConfig = {
   production: {
     client: 'mysql',
     connection: {
-      host : 'us-cdbr-east-06.cleardb.net',
+      host : process.env.DB_HOST,
       port : 3306,
-      user : 'babdf81e43a9ef',
-      password : '8c110f8f',
-      database : 'heroku_f2ffedc29a7e1ab'
+      user : process.env.DB_USER,
+      password : process.env.DB_PASSWORD,
+      database : process.env.DATABASE
     }
     }
-  },
+  ,
+  development: {
+    client: 'mysql',
+    connection: {
+      host : '127.0.0.1',
+      port : 3306,
+      user : 'root',
+      password : '1234',
+      database : 'lendsqrDB'
+    }
+    }
+  ,
   test:{
     client: 'mysql',
     connection: {
-      host : 'us-cdbr-east-06.cleardb.net',
+      host : '127.0.0.1',
       port : 3306,
-      user : 'babdf81e43a9ef',
-      password : '8c110f8f',
-      database : 'heroku_f2ffedc29a7e1ab'
+      user : 'root',
+      password : '1234',
+      database : 'lendsqrTestDB'
     }
   },
   staging: {
@@ -43,7 +54,7 @@ const configs: IKnexConfig = {
     }
   },
 
-  development: {
+  state: {
     client: "postgresql",
     connection: {
       database: "my_db",
