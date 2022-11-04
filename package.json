@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
+    "build": "rimraf dist && tsc",
     "dev": "ts-node-dev --inspect --ignore-watch node_modules ./bin/www",
     "compile": "tsc -w",
     "knex": "./node_modules/.bin/knex --knexfile src/database/knexfile.ts",

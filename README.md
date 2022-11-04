@@ -208,3 +208,4 @@ delete deposit: DELETE localhost:7000/democredit/transfers/:transfer_Id
     }
    }
     ```
+>Note: The application is not authenticated to enable easy testing of the app. the authorization and authentication middleware was implemented but was not included in the route this means a user have permission to every functionality of the app
