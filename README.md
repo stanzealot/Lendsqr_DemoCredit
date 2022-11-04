@@ -5,7 +5,8 @@ is a mobile lending app that requires wallet functionality. This is needed as bo
 
 ## How To Install And Run The App
 
-clone the repo and run the following commands
+clone the repo from the develop branch and run the following commands
+*[x] Note: clone from develop branch for testing purpose
 * install all dependencies
     ```bash
         yarn 
